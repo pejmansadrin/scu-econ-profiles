@@ -1,5 +1,6 @@
 import React from 'react';
 import { config } from '../config';
+import ListGroup from 'react-bootstrap/ListGroup'; // کامپوننت ListGroup را وارد می‌کنیم
 
 export default function HomePage({ users }) {
   const sortedUsers = [...users].sort((a, b) => b.points - a.points);
@@ -24,33 +25,35 @@ export default function HomePage({ users }) {
 
   return (
     <div className="homepage">
-      <h2>لیدربورد اعضای فعال</h2>
-      <ol className="user-list">
+      <h2 className="mb-4">لیدربورد اعضای فعال</h2>
+      {/* استفاده از ListGroup به جای ol */}
+      <ListGroup as="ol" numbered>
         {sortedUsers.map((user, index) => {
           const progressPercent = getLevelProgress(user.points, user.level);
           const rankClass = getRankClass(index);
           return (
-            <li key={user.id} className={rankClass}>
-              <a href={`#${user.id}`}>
-                <span className="rank">{index + 1}</span>
-                <div className="avatar-container" style={{ '--progress': `${progressPercent}%` }}>
-                  <img src={`https://i.pravatar.cc/150?u=${user.id}`} alt={user.name} className="avatar-image" />
-                  <span className="level-badge">{user.level}</span>
-                  {/* این بخش جدید برای نمایش XP روی هاور است */}
-                  <div className="avatar-xp-overlay">
-                    <span>{user.points} XP</span>
-                  </div>
+            <ListGroup.Item
+              as="li"
+              key={user.id}
+              href={`#${user.id}`}
+              action // این باعث می‌شود آیتم‌ها حالت هاور بگیرند
+              className={`d-flex align-items-center user-list-item ${rankClass}`}
+            >
+              <div className="avatar-container" style={{ '--progress': `${progressPercent}%` }}>
+                <img src={`https://i.pravatar.cc/150?u=${user.id}`} alt={user.name} className="avatar-image" />
+                <span className="level-badge">{user.level}</span>
+                <div className="avatar-xp-overlay">
+                  <span>{user.points} XP</span>
                 </div>
-                <div className="user-info">
-                  <span className="name">{user.name}</span>
-                  <span className="entry-year">ورودی {user.entryYear}</span>
-                </div>
-                {/* <span> امتیاز از اینجا حذف شد */}
-              </a>
-            </li>
+              </div>
+              <div className="ms-3 me-auto user-info">
+                <div className="fw-bold name">{user.name}</div>
+                <div className="entry-year">ورودی {user.entryYear}</div>
+              </div>
+            </ListGroup.Item>
           );
         })}
-      </ol>
+      </ListGroup>
     </div>
   );
 }
