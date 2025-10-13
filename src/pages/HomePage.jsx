@@ -1,6 +1,6 @@
 import React from 'react';
 import { config } from '../config';
-import ListGroup from 'react-bootstrap/ListGroup'; // کامپوننت ListGroup را وارد می‌کنیم
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function HomePage({ users }) {
   const sortedUsers = [...users].sort((a, b) => b.points - a.points);
@@ -26,17 +26,15 @@ export default function HomePage({ users }) {
   return (
     <div className="homepage">
       <h2 className="mb-4">لیدربورد اعضای فعال</h2>
-      {/* استفاده از ListGroup به جای ol */}
       <ListGroup as="ol" numbered>
         {sortedUsers.map((user, index) => {
           const progressPercent = getLevelProgress(user.points, user.level);
           const rankClass = getRankClass(index);
           return (
             <ListGroup.Item
-              as="li"
               key={user.id}
               href={`#${user.id}`}
-              action // این باعث می‌شود آیتم‌ها حالت هاور بگیرند
+              action
               className={`d-flex align-items-center user-list-item ${rankClass}`}
             >
               <div className="avatar-container" style={{ '--progress': `${progressPercent}%` }}>
@@ -46,7 +44,8 @@ export default function HomePage({ users }) {
                   <span>{user.points} XP</span>
                 </div>
               </div>
-              <div className="ms-3 me-auto user-info">
+              {/* This is the changed part */}
+              <div className="me-3 ms-auto user-info text-end">
                 <div className="fw-bold name">{user.name}</div>
                 <div className="entry-year">ورودی {user.entryYear}</div>
               </div>
