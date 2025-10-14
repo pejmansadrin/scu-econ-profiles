@@ -31,7 +31,7 @@ export default function ProfileCard({ user }) {
         <Card.Body>
           <Row className="align-items-center mb-4">
             <Col md={3} className="text-center mb-3 mb-md-0">
-              <img src={`https://i.pravatar.cc/150?u=${user.id}`} alt={user.name} className="profile-avatar" />
+              <img src={user.avatar} alt={user.name} className="profile-avatar" />
             </Col>
             <Col md={9}>
               <div className="profile-info text-center text-md-end">

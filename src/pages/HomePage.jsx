@@ -39,7 +39,7 @@ export default function HomePage({ users }) {
             >
               <div className="rank-number">{index + 1}</div>
               <div className="avatar-container" style={{ '--progress': `${progressPercent}%` }}>
-                <img src={`https://i.pravatar.cc/150?u=${user.id}`} alt={user.name} className="avatar-image" />
+                <img src={user.avatar} alt={user.name} className="avatar-image" />
                 <span className="level-badge">{user.level}</span>
                 <div className="avatar-xp-overlay">
                   <span>{user.points} XP</span>
