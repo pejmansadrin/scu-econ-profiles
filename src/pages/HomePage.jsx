@@ -25,8 +25,8 @@ export default function HomePage({ users }) {
 
   return (
     <div className="homepage">
-      <h2 className="mb-4">لیدربورد اعضای فعال</h2>
-      <ListGroup as="ol" numbered>
+      <h2 className="mb-4 text-center" style={{ color: '#fff' }}>لیدربورد اعضای فعال</h2>
+      <ListGroup as="ol">
         {sortedUsers.map((user, index) => {
           const progressPercent = getLevelProgress(user.points, user.level);
           const rankClass = getRankClass(index);
@@ -37,6 +37,7 @@ export default function HomePage({ users }) {
               action
               className={`d-flex align-items-center user-list-item ${rankClass}`}
             >
+              <div className="rank-number">{index + 1}</div>
               <div className="avatar-container" style={{ '--progress': `${progressPercent}%` }}>
                 <img src={`https://i.pravatar.cc/150?u=${user.id}`} alt={user.name} className="avatar-image" />
                 <span className="level-badge">{user.level}</span>
@@ -44,7 +45,6 @@ export default function HomePage({ users }) {
                   <span>{user.points} XP</span>
                 </div>
               </div>
-              {/* This is the changed part */}
               <div className="me-3 ms-auto user-info text-end">
                 <div className="fw-bold name">{user.name}</div>
                 <div className="entry-year">ورودی {user.entryYear}</div>

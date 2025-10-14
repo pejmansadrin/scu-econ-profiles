@@ -1,0 +1,79 @@
+// Media Queries for Responsive Design
+
+@media (max-width: 576px) {
+  // --- General Adjustments ---
+  main {
+    padding: 10px !important;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  // --- Leaderboard Adjustments ---
+  .user-list-item {
+    padding: 0.75rem !important;
+  }
+
+  .rank-number {
+    font-size: 1.2rem;
+    margin-left: 0.75rem;
+    min-width: 20px;
+  }
+
+  .avatar-container {
+    width: 55px;
+    height: 55px;
+
+    .level-badge {
+      width: 22px;
+      height: 22px;
+      font-size: 0.7rem;
+    }
+  }
+
+  .user-info .name {
+    font-size: 1rem;
+  }
+  .user-info .entry-year {
+    font-size: 0.8rem;
+  }
+
+  // --- Profile Page Adjustments ---
+  .profile-card-glass .row {
+    flex-direction: column;
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .profile-info h2 {
+    font-size: 1.8rem;
+  }
+
+  .progress-section {
+    padding: 0.75rem;
+    .level-indicator, .total-xp {
+      font-size: 1rem;
+    }
+    .progress-text {
+      font-size: 0.8rem;
+    }
+  }
+
+  .activity-item-glass {
+    padding: 0.5rem 0.75rem !important;
+    .fw-bold {
+      font-size: 0.9rem;
+    }
+    font-size: 0.8rem;
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 0.4em 0.6em;
+    }
+  }
+}

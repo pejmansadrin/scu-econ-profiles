@@ -2,10 +2,7 @@
   {
     "id": "400112345",
     "name": "علی احمدی",
-    "avatar": "https://i.pravatar.cc/150?u=400112345",
-    "level": 4,
-    "points": 650,
-    "entryYear": 1400,
+    "avatar": "https://avatar.iran.liara.run/public/boy",
     "activities": [
       { "title": "شرکت در کارگاه اقتصاد کلان", "date": "1404-07-28", "points": 80 },
       { "title": "همکاری در برگزاری سمینار", "date": "1404-08-13", "points": 120 }
@@ -14,10 +11,7 @@
   {
     "id": "401112346",
     "name": "سارا مرادی",
-    "avatar": "https://i.pravatar.cc/150?u=401112346",
-    "level": 5,
-    "points": 920,
-    "entryYear": 1401,
+    "avatar": "https://avatar.iran.liara.run/public/girl",
     "activities": [
       { "title": "ارائه مقاله در کنفرانس", "date": "1404-07-03", "points": 250 },
       { "title": "شرکت در کارگاه اقتصاد سنجی", "date": "1404-08-16", "points": 100 }
@@ -26,10 +20,7 @@
   {
     "id": "400215897",
     "name": "رضا کریمی",
-    "avatar": "https://i.pravatar.cc/150?u=400215897",
-    "level": 3,
-    "points": 310,
-    "entryYear": 1400,
+    "avatar": "https://avatar.iran.liara.run/public/boy",
     "activities": [
       { "title": "همکاری در نشریه اقتصادی", "date": "1404-06-15", "points": 150 },
       { "title": "شرکت در کارگاه بورس و سرمایه‌گذاری", "date": "1404-09-01", "points": 80 }
@@ -38,10 +29,7 @@
   {
     "id": "402118341",
     "name": "فاطمه حسینی",
-    "avatar": "https://i.pravatar.cc/150?u=402118341",
-    "level": 2,
-    "points": 180,
-    "entryYear": 1402,
+    "avatar": "https://avatar.iran.liara.run/public/girl",
     "activities": [
       { "title": "شرکت در جلسه معارفه انجمن", "date": "1404-07-10", "points": 50 }
     ]
@@ -49,10 +37,7 @@
   {
     "id": "399113321",
     "name": "مهدی محمودی",
-    "avatar": "https://i.pravatar.cc/150?u=399113321",
-    "level": 5,
-    "points": 1150,
-    "entryYear": 1399,
+    "avatar": "https://avatar.iran.liara.run/public/boy",
     "activities": [
       { "title": "برگزاری وبینار 'آشنایی با رمزارزها'", "date": "1404-08-20", "points": 300 },
       { "title": "ترجمه مقاله اقتصادی برای سایت", "date": "1404-09-11", "points": 120 }
@@ -61,10 +46,7 @@
   {
     "id": "401211188",
     "name": "زهرا قاسمی",
-    "avatar": "https://i.pravatar.cc/150?u=401211188",
-    "level": 4,
-    "points": 510,
-    "entryYear": 1401,
+    "avatar": "https://avatar.iran.liara.run/public/girl",
     "activities": [
       { "title": "مدیریت غرفه انجمن در جشنواره", "date": "1404-07-25", "points": 200 },
       { "title": "ارائه تحلیل هفتگی بازار", "date": "1404-10-05", "points": 110 }
@@ -73,24 +55,35 @@
   {
     "id": "402117654",
     "name": "امیررضا صالحی",
-    "avatar": "https://i.pravatar.cc/150?u=402117654",
-    "level": 1,
-    "points": 75,
-    "entryYear": 1402,
+    "avatar": "https://avatar.iran.liara.run/public/boy",
     "activities": [
       { "title": "شرکت در کارگاه بورس و سرمایه‌گذاری", "date": "1404-09-01", "points": 80 }
     ]
   },
   {
-    "id": "399216543",
+    "id": "99216543",
     "name": "نگار رضایی",
-    "avatar": "https://i.pravatar.cc/150?u=399216543",
-    "level": 6,
-    "points": 1500,
-    "entryYear": 1399,
+    "avatar": "https://avatar.iran.liara.run/public/girl",
     "activities": [
       { "title": "دبیر انجمن علمی اقتصاد", "date": "1403-07-01", "points": 500 },
       { "title": "برگزاری وبینار 'آشنایی با رمزارزها'", "date": "1404-08-20", "points": 300 }
+    ]
+  },
+  {
+    "id": "98112233",
+    "name": "پژمان صدرین",
+    "avatar": "https://avatar.iran.liara.run/public/boy",
+    "activities": [
+      { "title": "عضویت در تیم اجرایی هفته پژوهش", "date": "1403-09-20", "points": 150 },
+      { "title": "تولید محتوا برای شبکه‌های اجتماعی", "date": "1403-10-15", "points": 90 },
+      { "title": "مشارکت در پروژه تحقیقاتی", "date": "1403-11-01", "points": 220 },
+      { "title": "برگزاری جلسه هم‌اندیشی", "date": "1403-12-10", "points": 70 },
+      { "title": "شرکت در مسابقه ملی اقتصاد", "date": "1404-01-25", "points": 300 },
+      { "title": "کمک به برگزاری انتخابات انجمن", "date": "1404-02-18", "points": 110 },
+      { "title": "طراحی پوستر برای رویداد", "date": "1404-03-05", "points": 60 },
+      { "title": "ویرایش و چاپ نشریه", "date": "1404-04-22", "points": 180 },
+      { "title": "نماینده انجمن در شورای فرهنگی", "date": "1404-05-10", "points": 250 },
+      { "title": "شرکت در دوره آموزشی نرم‌افزار Stata", "date": "1404-06-30", "points": 120 }
     ]
   }
 ]

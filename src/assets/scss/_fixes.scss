@@ -1,0 +1,17 @@
+// Specific fixes and overrides
+
+// FIX for Progress Bar direction in RTL layout
+.progress-bar {
+  direction: ltr;
+}
+
+// FIX for ListGroup border-radius override
+.list-group-flush > .list-group-item:first-child {
+  border-top-left-radius: $border-radius !important;
+  border-top-right-radius: $border-radius !important;
+}
+
+.list-group-flush > .list-group-item:last-child {
+  border-bottom-left-radius: $border-radius !important;
+  border-bottom-right-radius: $border-radius !important;
+}

@@ -1,0 +1,17 @@
+// Styles for small, reusable components
+
+.back-link {
+  text-decoration: none;
+  color: $primary-color;
+  font-weight: bold;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.badge[bg="secondary"] {
+  background-color: $secondary-color !important;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+}
