@@ -1,9 +1,12 @@
+// src/main.jsx
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 
 // ۱. فایل CSS بوت‌استرپ را وارد کن
-import 'bootstrap/dist/css/bootstrap.min.css';
+// تغییر در اینجا: از .min.css به .rtl.min.css
+import 'bootstrap/dist/css/bootstrap.rtl.min.css';
 
 // ۲. فایل‌های استایل سفارشی ما بعد از آن لود می‌شوند
 import './assets/scss/main.scss';

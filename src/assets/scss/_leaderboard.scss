@@ -115,3 +115,26 @@
 .list-group {
     padding : 0;
 }
+
+.download-all-qr-button {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  color: $secondary-color;
+  font-weight: bold;
+  padding: 0.75rem;
+  font-size: 1rem;
+  --bs-btn-hover-bg: #{darken($primary-color, 10%)};
+  --bs-btn-hover-border-color: #{darken($primary-color, 10%)};
+  --bs-btn-hover-color: #{$secondary-color};
+  --bs-btn-active-bg: #{darken($primary-color, 15%)};
+  --bs-btn-active-border-color: #{darken($primary-color, 15%)};
+  --bs-btn-active-color: #{$secondary-color};
+  --bs-btn-focus-shadow-rgb: #{red($primary-color), green($primary-color), blue($primary-color)};
+
+  &:disabled {
+    background-color: #{darken($primary-color, 10%)};
+    border-color: #{darken($primary-color, 10%)};
+    color: $secondary-color;
+    opacity: 0.7;
+  }
+}
