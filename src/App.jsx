@@ -1,87 +1,48 @@
-import React, { useState, useEffect } from 'react';
+// src/App.jsx (جدید)
+
+import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import ProfileCard from './components/ProfileCard';
-import { config } from './config.js';
+import { config } from './config.js'; // برای استفاده از نام انجمن در هدر
 
-const API_URL = `/data/${config.dataFileName}`;
-
-// Function to calculate user level based on points
-const calculateLevel = (points, thresholds) => {
-  let level = 1;
-  for (let i = 1; i < thresholds.length; i++) {
-    if (points >= thresholds[i]) {
-      level = i + 1;
-    } else {
-      break;
-    }
-  }
-  return level;
-};
-
-// --- New Function to Calculate Entry Year ---
-const calculateEntryYear = (id) => {
-  if (id.startsWith('9')) {
-    return `13${id.substring(0, 2)}`;
-  } else if (id.startsWith('4')) {
-    return `1${id.substring(0, 3)}`;
-  }
-  return 'نامشخص'; // Fallback for other cases
-};
-// --- End of New Function ---
-
+// این کامپوننت اصلی برای صفحه root (/) است
 function App() {
-  const [users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(API_URL)
-      .then(res => res.json())
-      .then(data => {
-        // --- Updated Processing Logic ---
-        const processedUsers = data.map(user => {
-          const totalPoints = user.activities.reduce((sum, activity) => sum + activity.points, 0);
-          const userLevel = calculateLevel(totalPoints, config.levelThresholds);
-          const entryYear = calculateEntryYear(user.id); // Calculate entry year
-          
-          return {
-            ...user,
-            points: totalPoints,
-            level: userLevel,
-            entryYear: entryYear, // Add calculated year to user object
-          };
-        });
-        // --- End of Logic ---
-        
-        setUsers(processedUsers);
-        setLoading(false);
-      });
-  }, []);
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      const userId = window.location.hash.substring(1);
-      if (userId) {
-        const user = users.find(u => u.id === userId);
-        setCurrentUser(user);
-      } else {
-        setCurrentUser(null);
-      }
-    };
-    if (!loading) handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, [loading, users]);
-
   return (
     <>
       <Header />
-      <main style={{ maxWidth: '800px', margin: '20px auto', padding: '20px' }}>
-        {loading ? <p>Loading...</p> : (
-          currentUser ? <ProfileCard user={currentUser} /> : <HomePage users={users} />
-        )}
+      <main style={{ 
+        maxWidth: '800px', 
+        margin: '20px auto', 
+        padding: '40px 20px', 
+        color: 'white', 
+        textAlign: 'center',
+        backgroundColor: 'rgba(74, 14, 25, 0.6)', // همان تم شیشه‌ای
+        backdropFilter: 'blur(10px)',
+        borderRadius: '12px',
+        border: '1px solid rgba(212, 175, 55, 0.3)'
+      }}>
+        <h2>به سامانه پروفایل اعضای انجمن علمی اقتصاد خوش آمدید</h2>
+        <p style={{ marginTop: '2rem', fontSize: '1.1rem' }}>
+          برای مشاهده لیست اعضا و امتیازات، به صفحه لیدربورد مراجعه کنید.
+        </p>
+        
+        {/* این دکمه به صفحه لیدربورد لینک می‌دهد */}
+        <a 
+          href="/leaderboard.html" 
+          className="btn" 
+          style={{ 
+            fontWeight: 'bold', 
+            marginTop: '1rem', 
+            backgroundColor: '#d4af37', // $primary-color
+            borderColor: '#d4af37', 
+            color: '#4a0e19', // $secondary-color
+            padding: '0.75rem 1.5rem',
+            fontSize: '1.1rem'
+          }}
+        >
+          <i className="bi bi-trophy-fill me-2"></i>
+          مشاهده لیدربورد
+        </a>
       </main>
       <Footer />
     </>

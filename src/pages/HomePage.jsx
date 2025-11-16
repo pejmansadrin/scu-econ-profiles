@@ -32,7 +32,10 @@ export default function HomePage({ users }) {
         // استخراج دیتای base64 از data URL
         const base64Data = qrDataUrl.split(',')[1];
         
-        const fileName = `${user.id} - ${user.name}.png`;
+        // --- تغییر خواسته شده: نام فایل فقط شماره دانشجویی باشد ---
+        const fileName = `${user.id}.png`;
+        // --- پایان تغییر ---
+
         // افزودن فایل به zip
         zip.file(fileName, base64Data, { base64: true });
       } catch (err) {
