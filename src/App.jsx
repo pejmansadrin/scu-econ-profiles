@@ -1,11 +1,10 @@
-// src/App.jsx (جدید)
+// src/App.jsx (ویرایش شده برای لینک تمیز)
 
 import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { config } from './config.js'; // برای استفاده از نام انجمن در هدر
+import { config } from './config.js';
 
-// این کامپوننت اصلی برای صفحه root (/) است
 function App() {
   return (
     <>
@@ -16,7 +15,7 @@ function App() {
         padding: '40px 20px', 
         color: 'white', 
         textAlign: 'center',
-        backgroundColor: 'rgba(74, 14, 25, 0.6)', // همان تم شیشه‌ای
+        backgroundColor: 'rgba(74, 14, 25, 0.6)',
         backdropFilter: 'blur(10px)',
         borderRadius: '12px',
         border: '1px solid rgba(212, 175, 55, 0.3)'
@@ -26,16 +25,16 @@ function App() {
           برای مشاهده لیست اعضا و امتیازات، به صفحه لیدربورد مراجعه کنید.
         </p>
         
-        {/* این دکمه به صفحه لیدربورد لینک می‌دهد */}
+        {/* --- تغییر در اینجا --- */}
         <a 
-          href="/leaderboard.html" 
+          href="/leaderboard" // به جای /leaderboard.html
           className="btn" 
           style={{ 
             fontWeight: 'bold', 
             marginTop: '1rem', 
-            backgroundColor: '#d4af37', // $primary-color
+            backgroundColor: '#d4af37',
             borderColor: '#d4af37', 
-            color: '#4a0e19', // $secondary-color
+            color: '#4a0e19',
             padding: '0.75rem 1.5rem',
             fontSize: '1.1rem'
           }}
@@ -43,6 +42,7 @@ function App() {
           <i className="bi bi-trophy-fill me-2"></i>
           مشاهده لیدربورد
         </a>
+        {/* --- پایان تغییر --- */}
       </main>
       <Footer />
     </>

@@ -1,3 +1,5 @@
+// vite.config.js (کامل و نهایی)
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'

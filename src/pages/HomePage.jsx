@@ -1,4 +1,4 @@
-// src/pages/HomePage.jsx
+// src/pages/HomePage.jsx (ویرایش شده برای QR Code با لینک تمیز)
 
 import React, { useState } from 'react';
 import { config } from '../config';
@@ -10,33 +10,28 @@ import { toDataURL as toQRDataURL } from 'qrcode';
 export default function HomePage({ users }) {
   const [isZipping, setIsZipping] = useState(false);
 
-  // این خط اکنون به درستی کار می‌کند چون App.jsx آرایه users را پاس می‌دهد
   const sortedUsers = [...users].sort((a, b) => b.points - a.points);
 
   // --- تابع دانلود همه‌ی QR Code ها ---
   const handleDownloadAllQRCodes = async () => {
     setIsZipping(true);
     
-    // از آدرس فعلی مرورگر استفاده می‌کنیم تا هم روی localhost و هم روی دامنه اصلی کار کند
+    // --- تغییر در اینجا ---
+    // آدرس پایه را به صورت صریح تعریف می‌کنیم تا مطمئن شویم
+    // به /leaderboard/ اشاره می‌کند، نه /leaderboard.html
     const currentOrigin = window.location.origin;
-    const currentPath = window.location.pathname.endsWith('/') ? window.location.pathname : `${window.location.pathname}/`;
-    const baseUrlForQR = `${currentOrigin}${currentPath.replace(/\/+$/, '/')}`;
+    const baseUrlForQR = `${currentOrigin}/leaderboard/`; 
+    // --- پایان تغییر ---
 
     const zip = new JSZip();
 
     for (const user of sortedUsers) {
       try {
         const profileUrl = `${baseUrlForQR}#${user.id}`;
-        // تبدیل لینک به QR code (به صورت data URL)
         const qrDataUrl = await toQRDataURL(profileUrl, { width: 300, errorCorrectionLevel: 'L' });
-        // استخراج دیتای base64 از data URL
         const base64Data = qrDataUrl.split(',')[1];
         
-        // --- تغییر خواسته شده: نام فایل فقط شماره دانشجویی باشد ---
         const fileName = `${user.id}.png`;
-        // --- پایان تغییر ---
-
-        // افزودن فایل به zip
         zip.file(fileName, base64Data, { base64: true });
       } catch (err) {
         console.error(`Failed to generate QR for ${user.name}:`, err);
@@ -54,7 +49,8 @@ export default function HomePage({ users }) {
       a.click();
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
-    } catch (err) {
+    } catch (err)
+ {
       console.error('Failed to create zip file:', err);
       alert('خطا در ساخت فایل فشرده.');
     }
@@ -113,8 +109,7 @@ export default function HomePage({ users }) {
         })}
       </ListGroup>
 
-      {/* --- دکمه دانلود به انتهای لیست منتقل شد --- */}
-      <div className="d-grid gap-2 mt-4"> {/* <-- تغییر mb-4 به mt-4 */}
+      <div className="d-grid gap-2 mt-4">
         <Button 
           className="download-all-qr-button" 
           onClick={handleDownloadAllQRCodes} 
@@ -133,7 +128,6 @@ export default function HomePage({ users }) {
           )}
         </Button>
       </div>
-      {/* --- پایان دکمه --- */}
     </div>
   );
 }
